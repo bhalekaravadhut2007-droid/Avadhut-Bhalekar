@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main()
+{
+    float arr[100], key;
+    int n, i, j;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d prices: ", n);
+    for (i = 0; i < n; i++)
+    {
+        scanf("%f", &arr[i]);
+    }
+
+    // Insertion Sort
+    for (i = 1; i < n; i++)
+    {
+        key = arr[i];
+        j = i - 1;
+
+        while (j >= 0 && arr[j] > key)
+        {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+
+        arr[j + 1] = key;
+    }
+
+    printf("Prices after Insertion Sort:\n");
+    for (i = 0; i < n; i++)
+    {
+        printf("%.2f ", arr[i]);
+    }
+
+    return 0;
+}
